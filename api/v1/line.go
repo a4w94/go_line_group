@@ -12,6 +12,7 @@ var bot *linebot.Client
 var err error
 
 func init() {
+	//獲取 .env檔
 	bot, err = linebot.New(
 		os.Getenv("CHANNEL_SECRET"),
 		os.Getenv("CHANNEL_TOKEN"),
@@ -21,6 +22,7 @@ func init() {
 	}
 }
 
+//line bot 回應邏輯
 func LineReply(c *gin.Context) {
 
 	events, err := bot.ParseRequest(c.Request)
@@ -37,6 +39,8 @@ func LineReply(c *gin.Context) {
 	for _, event := range events {
 		if event.Type == linebot.EventTypeMessage {
 			switch message := event.Message.(type) {
+
+			//針對接受到的文字訊息進行解析回應
 			case *linebot.TextMessage:
 				if message.Text != "" {
 					bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage("hi")).Do()
