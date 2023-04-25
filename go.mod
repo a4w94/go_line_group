@@ -1,11 +1,11 @@
-module github.com/heroku/go-getting-started
+module go_line_group
 
-// +heroku goVersion go1.20
 go 1.20
 
 require (
 	github.com/gin-gonic/gin v1.9.0
-	github.com/heroku/x v0.0.55
+	github.com/heroku/x v0.0.57
+	github.com/line/line-bot-sdk-go/v7 v7.20.0
 )
 
 require (
