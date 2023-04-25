@@ -13,7 +13,7 @@ func InitRouter() *gin.Engine {
 	// router.Use(gin.BasicAuth(gin.Accounts{
 	// 	"admin": "123456",
 	// }))
-	router.LoadHTMLGlob("templates/*.tmpl.html")
+	//router.LoadHTMLGlob("templates/*.tmpl.html")
 	router.Static("/static", "static")
 
 	router.GET("/", func(c *gin.Context) {
