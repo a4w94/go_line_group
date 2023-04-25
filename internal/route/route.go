@@ -1,7 +1,6 @@
 package route
 
 import (
-	v1 "go_line_group/api/v1"
 	"net/http"
 
 	"github.com/gin-gonic/gin"
@@ -21,7 +20,7 @@ func InitRouter() *gin.Engine {
 		c.HTML(http.StatusOK, "index.tmpl.html", nil)
 	})
 
-	router.Any("/callback", v1.LineReply)
+	//router.Any("/callback", v1.LineReply)
 
 	// This is just sample code.
 	// For actual use, you must support HTTPS by using `ListenAndServeTLS`, a reverse proxy or something else.
