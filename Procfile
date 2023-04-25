@@ -1,1 +1,1 @@
-web: go_line_gorup
+web: bin/go_line_group
