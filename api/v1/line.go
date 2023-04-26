@@ -8,6 +8,12 @@ import (
 	"github.com/line/line-bot-sdk-go/v7/linebot"
 )
 
+type MessageParams struct {
+	Bot     *linebot.Client
+	Event   *linebot.Event
+	Message *linebot.TextMessage
+}
+
 var bot *linebot.Client
 var err error
 
@@ -42,9 +48,16 @@ func LineReply(c *gin.Context) {
 
 			//針對接受到的文字訊息進行解析回應
 			case *linebot.TextMessage:
-				if message.Text != "" {
-					bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage("hi")).Do()
+				if message.Text == "yoyo" {
+					bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage("check it out")).Do()
 				}
+				params := MessageParams{
+					Bot:     bot,
+					Event:   event,
+					Message: message,
+				}
+				params.HelperReply()
+
 			}
 		}
 	}

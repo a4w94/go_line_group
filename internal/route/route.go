@@ -14,7 +14,6 @@ func InitRouter() *gin.Engine {
 	//載入模板
 	router.LoadHTMLGlob("web/templates/*.tmpl.html")
 	router.Static("/static", "static")
-
 	//app路徑測試是否正常開啟
 	router.GET("/", func(c *gin.Context) {
 		c.HTML(http.StatusOK, "index.tmpl.html", nil)
